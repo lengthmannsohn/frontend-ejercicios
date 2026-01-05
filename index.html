@@ -1,13 +1,48 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-  <title>Mi JS</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
 <body>
-  <script>
-    let nombre = "Length";
-    console.log("Hola " + nombre);
-    alert("Hola " + nombre); // Esto muestra un mensaje en ventana
-  </script>
+    <script>
+        let a = 5;
+        let b = 10;
+        let c = 7;
+        let d = 3;
+        let e = 8;
+        let f = 2;
+        let g = 6;
+        let h = 4;
+        let i = 9;
+        let j = 1;
+
+        caja = 0
+
+        contador = 0
+
+        // El objetivo es ordenar estas variables de menor a mayor
+        let arr = [a, b, c, d, e, f, g, h, i, j];
+        console.log(arr)
+        for ( x=0 ; contador = 10 ; x++ ) {
+            console.log(arr[x])
+            if (arr[x] > arr[x+1]) {
+                caja = [x+1];
+                arr[x+1]=arr[x];
+                arr[x]=caja;
+            }
+            else {contador = contador + 1}
+            if (x=9) {
+                if (contador <10) {
+                    contador = 0
+                }
+                x=0
+                }
+        }
+        for (let y = 0 ; i = 9 ; i ++){
+            console.log(arr[i]);
+        }
+    </script>
 </body>
 </html>
