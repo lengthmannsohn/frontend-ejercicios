@@ -3,11 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Javascript Tema 3 Ejercicio 1</title>
+    <title>Javascript Tema 3 Ejercicio 1 Strings</title>
 </head>
 <body>
     <script>
-        
+        const nombre = "Leonardo";
+        const fechaNacimiento = 1988;
+        const fechaActual = new Date().getFullYear();
+        const edad = fechaActual - fechaNacimiento;
+        const ciudad = "Madrid";
+        const ocupacion = "Tesorero";
+        mensaje = 
+            `Nombre: ${nombre}
+            Edad: ${edad} año${edad !== 1 ? 's' : ''}
+            Ciudad: ${ciudad}
+            Ocupación: ${ocupacion}`;
+        console.log(mensaje);
     </script>
 </body>
 </html>
