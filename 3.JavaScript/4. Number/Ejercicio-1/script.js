@@ -1,14 +1,21 @@
-const precioUnidad = 5;
-const unidades = 10;
+let precioUnidad = "49.99";
+let unidades = 10;
+
+precioUnidad = parseFloat(precioUnidad);
+unidades = parseInt(unidades)
+
+if (isNaN(precioUnidad) || isNaN(unidades)){
+    console.log("No son numeros, por favor ingresa numeros para continuar")
+    // En este punto volveríamos al inicio para ingresar de nuevo los valores pero aqui no lo hago porque es un ejercicio y no hay formulario para ingresar valores.
+}
+
 const precioTotal = precioUnidad * unidades;
 const descuento = 0.2;
 const descuentoCantidad = precioTotal * descuento;
 const precioConDescuento = precioTotal - descuentoCantidad;
 
-console.log(precioConDescuento);
+console.log(precioConDescuento.toFixed(2));
 
+//Ahora vamos a ponerlo en modo exponencial para comprobar que sé usar este método
 
-/*Cálculo: Correcto — el precio total (precioUnidad * unidades) y la aplicación del descuento son correctos; el resultado impreso es el esperado.
-Notación científica: No implementada — no se utiliza toExponential ni se muestra cómo representar números grandes en notación científica.
-Manejo de errores y explicación: Parcial — el alumno menciona convertir strings a números pero no muestra ni justifica el método (ej. Number(), parseFloat(), validaciones) ni implementa control de entradas o manejo de errores explícito.
-*/
+console.log(precioConDescuento.toExponential())
