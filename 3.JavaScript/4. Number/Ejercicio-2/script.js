@@ -1,18 +1,33 @@
 let precioUnitario;
 let cantidad;
 
-do {
-    precioUnitario = Number(prompt("Ingresa el precio unitario (solo números positivos):"));
-    cantidad = Number(prompt("Ingresa la cantidad (solo números positivos):"));
+function pedirNumeroPositivo(mensaje) {
+    let valor;
 
-    if (Number.isNaN(precioUnitario) || Number.isNaN(cantidad)) {
-        alert("Por favor, ingresa solo números válidos.");
-    } else if (precioUnitario <= 0 || cantidad <= 0) {
-        alert("Los números deben ser mayores que cero.");
-    }
-} while (
-    Number.isNaN(precioUnitario) || Number.isNaN(cantidad) || 
-    precioUnitario <= 0 || cantidad <= 0
-);
+    do {
+        valor = Number(prompt(mensaje));
 
-console.log("OK");
+        if (Number.isNaN(valor)) {
+            alert("Debes introducir un número válido.");
+        } else if (valor <= 0) {
+            alert("El número debe ser mayor que cero.");
+        }
+
+    } while (Number.isNaN(valor) || valor <= 0);
+
+    return valor;
+}
+
+// Pedimos datos validados
+precioUnitario = pedirNumeroPositivo("Ingresa el precio unitario:");
+cantidad = pedirNumeroPositivo("Ingresa la cantidad:");
+
+// Cálculos
+const DESCUENTO = 0.15;
+const precioCompra = precioUnitario * cantidad;
+const precioConDescuento = precioCompra * (1 - DESCUENTO);
+
+// Mostrar resultados
+console.log(`Precio sin descuento: ${precioCompra.toFixed(2)} €`);
+console.log(`Descuento aplicado: ${DESCUENTO * 100}%`);
+console.log(`Precio final con descuento: ${precioConDescuento.toFixed(2)} €`);
