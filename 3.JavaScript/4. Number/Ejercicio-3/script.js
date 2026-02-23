@@ -1,3 +1,12 @@
+//Declaramos las variables necesarias donde ya se calcula directamente el precio con iva
+const precioProducto = pedirNumeroPositivo("Introduzca el precio del producto:");
+const cantidad = pedirNumeroPositivo("Introduzca la cantidad del producto");
+const subtotal = precioProducto * cantidad;
+const precioConIVA = subtotal * 1.21;
+const aplicaDescuento = superaUmbral(precioConIVA);
+let precioConDescuento = precioConIVA;
+
+//Declaramos las funciones necesarias
 function pedirNumeroPositivo(mensaje){
     let input = prompt(mensaje);
     while (!validarNumero(input)) {
@@ -9,29 +18,27 @@ function pedirNumeroPositivo(mensaje){
 
 function validarNumero (numero) {
     if (numero === null) return false;
-    numero = Number(numero.trim());
-    if (Number.isFinite(numero) && numero > 0)
-        return true;
-    else return false;
+    numero = Number(numero);
+    return Number.isFinite(numero) && numero > 0;
 }
 
-let precioProducto = pedirNumeroPositivo("Introduzca el precio del producto:");
-let cantidad = pedirNumeroPositivo("Introduzca la cantidad del producto");
+function superaUmbral(precio){
+    return precio > 100
+}
+
+//Aplicamos el descuento en caso de superar el umbral
+if (aplicaDescuento) {
+    precioConDescuento -=10;
+}
+
+//Imprimimos el subtotal, el precio con iva y el precio con descuento en caso de haberlo
+console.log(`Subtotal: ${subtotal.toFixed(2)}€
+Precio con IVA: ${precioConIVA.toFixed(2)}€
+Se aplica descuento: ${aplicaDescuento ? 'Si' : 'No'}.
+${aplicaDescuento ? `Precio con descuento: ${precioConDescuento.toFixed(2)}€` : ''}`);
 
 
-/*Tu profesor te propone el siguiente reto: "Desarrolla una calculadora de impuestos para una tienda en línea. El sistema 
-debe calcular el total a pagar por un cliente después de aplicar un descuento si el total supera un determinado umbral. 
-Además, debes asegurarte de seguir buenas prácticas al trabajar con números en JavaScript, como evitar números mágicos, 
-usar constantes descriptivas y validar entradas."
+/*Simplemente ir haciendo los calculos paso a paso y en el orden correcto usando funciones para pedir los datos necesarios
+ al usuario, para validar esos datos introducidos y para validar si supera el umbral de precio para aplicar el descuento*/
 
-Para resolver este ejercicio, deberás:
-
-Crear un sistema que reciba el precio de un producto y la cantidad comprada.
-Calcular el subtotal.
-Aplicar un IVA del 21% sobre el subtotal.
-Verificar si el total con IVA supera un umbral específico (por ejemplo, 100€).
-Si supera ese umbral, aplicar un descuento (por ejemplo, 10€).
-Mostrar el total a pagar con dos decimales.
-Asegurarte de usar buenas prácticas como evitar valores "mágicos" y añadir comentarios explicativos en el código.
-Explica cómo implementaría estos pasos y proporciona el código necesario para llevar a cabo esta tarea.*/
-
+// Error detectado pero no corregido porque paso de hacerlo para este ejercicio: Uso de numeros mágicos
