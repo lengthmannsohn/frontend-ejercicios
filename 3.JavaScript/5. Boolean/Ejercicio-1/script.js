@@ -1,45 +1,25 @@
-// Booleanos en JavaScript
+// Declaramos las tres variables solicitadas, al menos una con const y una con let
+const falso = false;
+let booleanoString = true;
+let falsy = "";
 
-// Un booleano solo puede tener dos valores:
-let verdadero = true;
-let falso = false;
+// Imprimimos en consola el tipo de cada una de las tres variables
+console.log(typeof(falso));
+console.log(typeof(booleanoString));
+console.log(typeof(falsy));
 
-console.log(verdadero); // true
-console.log(falso);     // false
+// Cometemos adrede el error de asignar un valor de cadena al meter la palabra false entre comillas
+booleanoString = "false";
 
+// Imprimimos en consola el tipo de la variable booleanoString para comprobar que se ha convertido a una cadena en lugar de seguir siendo booleano
+console.log(typeof(booleanoString));
 
-// 1️⃣ Comparaciones (devuelven booleanos)
-let edad = 20;
-
-console.log(edad >= 18); // true
-console.log(edad < 18);  // false
-
-
-// 2️⃣ Operadores lógicos
-let tieneDNI = true;
-let esMayor = edad >= 18;
-
-// AND (&&) → ambas deben ser true
-console.log(esMayor && tieneDNI); // true
-
-// OR (||) → al menos una debe ser true
-console.log(esMayor || false); // true
-
-// NOT (!) → invierte el valor
-console.log(!esMayor); // false
-
-
-// 3️⃣ Valores "truthy" y "falsy"
-
-// Falsy (se convierten en false):
-console.log(Boolean(0));        // false
-console.log(Boolean(""));       // false
-console.log(Boolean(null));     // false
-console.log(Boolean(undefined));// false
-console.log(Boolean(NaN));      // false
-
-// Truthy (la mayoría de valores)
-console.log(Boolean(1));        // true
-console.log(Boolean("Hola"));   // true
-console.log(Boolean([]));       // true
-console.log(Boolean({}));       // true
+// Comprobamos que un valor falsy si lo comparamos con == es igual a false y lo imprimimos en la web, si utilizaramos === entonces la salida sería false porque no son exactamente lo mismo
+if (falso == falsy){
+    let salida = true;
+    document.getElementById("salida").innerHTML += salida;
+}
+else {
+    let salida = false;
+    document.getElementById("salida").innerHTML += salida;
+}
